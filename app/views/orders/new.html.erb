@@ -1,0 +1,46 @@
+
+<div class="container mt-4">
+<h1>Order for <%= @product.name %></h1>
+  <div class="row mt-4">
+    <div class="col-md mt-4">
+      <%= form_with model: [@product, @order], local: true do |f| %>
+        <div class="form-row mt-2">
+          <div class="col">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class:"form-control", placeholder:"First name" %>
+          </div>
+          <div class="col">
+            <%= f.label :last_name  %>
+            <%= f.text_field :last_name, class:"form-control", placeholder:"Last name" %>
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="col">
+            <%= f.label :phone, class:"label" %>
+            <%= f.text_field :phone, class:"form-control", placeholder:"Phone number" %>
+          </div>
+          <div class="col">
+            <%= f.label :address %>
+            <%= f.text_field :address, class:"form-control", placeholder:"Address" %>
+          </div>
+        </div>
+        <div class="form-row mt-2">
+          <div class="col">
+            <%= f.label "Quantity" %>
+            <%= f.select :qty, options_for_select(1.upto(10)), { default: 1 }, class:"custom-select", id:"qty"  %>
+          </div>
+          <div class="col mb-2">
+            <%= f.label :size %>
+            <%= f.select :size, options_for_select(size), { prompt: "Please select"}, class:"custom-select" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <%= image_tag @product.image_uploaded, height:180 %>
+        <%= @product.name %>
+        <%= @product.price %>
+      </div>
+    </div>
+          <%= f.submit "Create Order", class:"btn btn-primary btn-lg btn-block mt-4" %>
+        <% end %>
+  </div>

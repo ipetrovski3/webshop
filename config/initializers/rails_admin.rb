@@ -4,7 +4,58 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_admin)
 
-  config.excluded_models= [Admin]
+  config.excluded_models = [Admin]
+
+  config.model 'ActiveStorage::Attachments' do
+    visible false
+  end
+
+  config.model 'ActiveStorage::Blob' do
+    visible false
+  end
+
+  config.model 'Product' do
+    create do
+      configure :slug do
+        visible false
+      end
+      configure :image do
+        visible false
+      end
+      configure :image_url do
+        visible false
+      end
+    end
+
+    edit do
+      configure :slug do
+        visible false
+      end
+      configure :image_url do
+        visible false
+      end
+    end
+  end
+
+  config.model 'Category' do
+    create do
+      configure :slug do
+        visible false
+      end
+      configure :image do
+        visible false
+      end
+    end
+
+    edit do
+      configure :slug do
+        visible false
+      end
+      configure :image do
+        visible false
+      end
+    end
+  end
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   ## == Gravatar integration ==

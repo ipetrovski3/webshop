@@ -1,2 +1,22 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+
+<div class="container pt-3">
+  <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-5 mt-5">All <%= @category.name %></h2>
+  <div class="row pt-5">
+    <% @category.products.each do |product| %>
+      <div class="card p-3 col-12 col-md-6 col-lg-4 mt-3 mb-3">
+        <div class="card-wrapper ">
+          <div class="card-img text-center">
+            <%= image_tag image_product(product), height:180 %>
+          </div>
+          <div class="card-box text-center">
+            <%= product.name %>
+            <h4 class="card-title mbr-fonts-style display-7">
+              <%= product.price %>MKD
+            </h4>
+              <%= link_to 'Order Now!', new_product_order_path(product.id), class:"btn btn-success" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
