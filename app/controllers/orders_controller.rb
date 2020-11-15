@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   def create
     @order = @product.orders.build(order_params)
     if @order.save
+      OrderMailer.with(order: @order).order_email.deliver_now
       redirect_to @order
     else
       render :new
