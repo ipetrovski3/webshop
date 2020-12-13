@@ -10,5 +10,6 @@
   p.name = 'Man Shirt'
   p.price = 1000
   p.category_id = 1
+  p.image_uploaded.attach(io: File.open('app/assets/images'), filename: '130.jpg')
   p.save
 end
