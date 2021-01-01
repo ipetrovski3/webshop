@@ -3,19 +3,21 @@
   <h2 class="mbr-section-title pb-3 align-center mbr-fonts-style display-5 mt-5">All <%= @category.name %></h2>
   <div class="row pt-5">
     <% @category.products.each do |product| %>
-      <div class="card p-3 col-12 col-md-6 col-lg-4 mt-3 mb-3">
+      <div class="card p-2 col-12 col-md-6 col-lg-4 mt-3 mb-3 mr-1 link-to">
+    <%= link_to product do %>
         <div class="card-wrapper ">
           <div class="card-img text-center">
-            <%= image_tag image_product(product), height:180 %>
+            <%= image_tag product.resized_image if product.image_uploaded.attached? %>
           </div>
           <div class="card-box text-center">
-            <%= product.name %>
-            <h4 class="card-title mbr-fonts-style display-7">
+            <p class="link-to"><%= product.name %></p>
+            <h4 class="card-title mbr-fonts-style display-7 link-to">
               <%= product.price %>MKD
             </h4>
               <%= link_to 'Order Now!', new_product_order_path(product.id), class:"btn btn-success" %>
           </div>
         </div>
+      <% end %>
       </div>
     <% end %>
   </div>

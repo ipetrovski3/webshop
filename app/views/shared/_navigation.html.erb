@@ -1,0 +1,9 @@
+<div navinavi>
+  <span>
+    <%= link_to root_path do %>
+      <i class="fas fa-home"></i>
+    <% end %>
+  </span>
+  <span class="<%= 'navmenu-hidden' unless controller?('categories') && action?('show')%>"> > <%= link_to @category.name, category_path if controller?('categories') && action?('show') %> </span>
+  <span class="<%= 'navmenu-hidden' unless controller?('orders') && action?('new')%>"> > <%= link_to @order.product.category.name, category_path(@order.product.category.id)  if controller?('orders') && action?('new') %> > Нарачка </span>
+</div>

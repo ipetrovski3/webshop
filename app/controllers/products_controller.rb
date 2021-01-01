@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @category = Category.friendly.find(params[:id])
-    @product = @categories.products
+    @product = Product.friendly.find(params[:id])
   end
 end

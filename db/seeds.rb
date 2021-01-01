@@ -5,11 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.create(name:"shirt")
+
 10.times do
   p = Product.new
   p.name = 'Man Shirt'
   p.price = 1000
   p.category_id = 1
-  p.image_uploaded.attach(io: File.open('app/assets/images'), filename: '130.jpg')
+  p.image_uploaded.attach(io: File.open('/home/ipetrovski3/projects/webshop/app/assets/images/123.jpg'), filename: '123.jpg')
   p.save
 end

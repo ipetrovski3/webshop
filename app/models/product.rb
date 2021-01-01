@@ -7,4 +7,8 @@ class Product < ApplicationRecord
   has_many :orders
 
   validates :name, :price, presence: true
+
+  def resized_image
+      image_uploaded.variant(resize_to_limit: [300, 300]).processed
+  end
 end

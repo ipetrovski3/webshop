@@ -1,3 +1,48 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.show-products {
+  background-image: url(mainpic.jpg);
+  background-size: contain;
+  height: 100vh;
+}
+
+.fa-shipping-fast {
+  color: rgb(255, 255, 0);
+}
+
+.fa-tag {
+  color: green;
+}
+
+.primg {
+  max-width:100%;
+  max-height:100%;
+}
+
+/* Style the Image Used to Trigger the Modal */
+.modal-hover:hover {
+  transform: scale(1.2);
+  cursor:-moz-grabbing
+}
+
+.navinavi {
+  margin-top: 500px;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.753) !important;
+}
+
+.link-to {
+ color: white !important;
+}
+
+.link-to:hover {
+  text-decoration: none !important;
+}
+
+a {
+  text-decoration: none;
+}
